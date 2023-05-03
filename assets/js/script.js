@@ -23,6 +23,11 @@ $('.saveBtn').on('click', function () {
   // TODO: Add code to apply the past, present, or future class to each time
 
   $('.time-block').each(function () {
+    var currentBlock = $(this).attr('id');
+    var storedText = localStorage.getItem(currentBlock);
+    $(this).find('textarea').val(storedText);
+
+  
     var hrs = dayjs().tz('America/Los_Angeles').hour();
     console.log("HRS"+hrs)
     var presentHr = parseInt($(this).attr("id").split("-")[1]);
@@ -38,8 +43,6 @@ $('.saveBtn').on('click', function () {
 
 
   // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-  //
   
+    
 });
